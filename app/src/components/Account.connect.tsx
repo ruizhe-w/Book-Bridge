@@ -4,16 +4,15 @@ import { connect } from "react-redux";
 import {actions, ActionsType, RootStateType} from "../shared/store";
 
 import Account from "./Account";
-
-interface OwnProps {
-}
+import {getUserInformationAction, registUser} from "../shared/store/actions";
 
 const accountStateToProps = (state: RootStateType) => ({
-
+    isLoggedIn: state.account.isLoggedIn,
+    userName: state.account.username,
+    userImageUrl: state.account.userImage
 });
 
-const accountDispatchToProps = (dispatch: Dispatch<ActionsType>, props: OwnProps) => bindActionCreators({
-    loggedInStatus: () => actions.logInFacebookAction(),
-}, dispatch);
-
-export default connect(accountStateToProps, accountDispatchToProps)(Account);
+export default connect(accountStateToProps, {
+    getUserInformationAction,
+    registUser
+})(Account);

@@ -1,48 +1,63 @@
 import * as React from "react";
+import {actions} from "../shared/store";
 
 export interface AccountProps {
     isLoggedIn: boolean,
-    loggedInStatus: () => void,
     userName?: string,
     userImageUrl?: string,
     userMessageCounter?: string
 }
 
 export default class Account extends React.Component<AccountProps, {}> {
+    state = {isLoggedIn: false};
 
     constructor(props: AccountProps) {
         super(props);
-        this.checkFacebookLoginStatus(props.loggedInStatus);
+        this.state = {isLoggedIn: false};
+        FB.Event.subscribe("auth.statusChange", this.checkFacebookLoginStatus);
     }
 
+    componentDidMount() {
+        this.checkFacebookLoginStatus = this.checkFacebookLoginStatus.bind(this);
+        this.facebookCheckLoginStatusRecall = this.facebookCheckLoginStatusRecall.bind(this);
+        this.render = this.render.bind(this);
+        this.checkFacebookLoginStatus();
+    }
 
-    private checkFacebookLoginStatus = function (loggedInStatus: any) {
-        FB.getLoginStatus(function(response) {
-            if (response.status == "connected") {
-                console.log("Logged in");
-                console.log(response.authResponse.userID);
-                loggedInStatus();
-            } else {
-                console.log("Not logged in.");
-            }
-        });
-    };
+   facebookCheckLoginStatusRecall = (response: any) => {
+        let state;
+        if (response.status == "connected") {
+            console.log("Logged in");
+            console.log(response.authResponse.userID);
+            state = true;
+            actions.getUserInformationAction(response.authResponse.userID);
+        } else {
+            console.log("Not logged in.");
+            state = false;
+        }
+        if (state != this.state.isLoggedIn) {
+            this.setState({isLoggedIn: state});
+        }
+    }
+
+    checkFacebookLoginStatus = () => {FB.getLoginStatus(this.facebookCheckLoginStatusRecall);}
 
     render() {
         let accountDetail: any;
-        if (this.props.isLoggedIn) {
+
+        if (this.state.isLoggedIn) {
             accountDetail =
-                <div className="user">
+                <div className="user-base">
                     <img className="user-img" src={this.props.userImageUrl} alt="Image"/>
                     <p className="user-name"> {this.props.userName}</p>
 
                     <button className="user-message">{this.props.userMessageCounter}</button>
                 </div>;
         } else {
-            accountDetail = <div className="fb-login-button" data-size="large" data-button-type="continue_with"
-                                 data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"
+            accountDetail = <div className="user-base"><div className="fb-login-button" data-size="large" data-button-type="continue_with"
+                                 data-layout="default" data-auto-logout-link="false" data-use-continue-as="true"
                                  data-width="">
-            </div>;
+            </div></div>;
         }
         return (
             accountDetail

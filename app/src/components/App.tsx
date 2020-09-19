@@ -1,6 +1,6 @@
 import * as React from "react";
 import Account from "./Account";
-import {logInFacebookAction} from "../shared/store/actions";
+import {getUserInformationAction, registUser} from "../shared/store/actions";
 
 export interface AppProps {
     loading: boolean;
@@ -14,7 +14,7 @@ export default class App extends React.Component<AppProps, {}> {
                 {/*{this.props.loading && <div className="loading" />}*/}
                 <div className="header">
                     <h1>Sale your books</h1>
-                    <Account isLoggedIn={false} loggedInStatus={logInFacebookAction}/>
+                    <Account isLoggedIn={false}/>
                 </div>
 
                 <div className="main">
