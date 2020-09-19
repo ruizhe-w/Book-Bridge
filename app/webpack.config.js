@@ -26,14 +26,4 @@ module.exports = {
             // { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
     },
-
-    devServer: {
-        http2: true,
-        https: {
-            key: fs.readFileSync(".cert/key.pem"),
-            cert: fs.readFileSync(".cert/cert.pem"),
-            // ca: fs.readFileSync("/path/to/ca.pem"),
-        }
-    },
-
 };

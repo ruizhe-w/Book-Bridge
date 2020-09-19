@@ -1,17 +1,19 @@
-import { Dispatch } from "redux";
+import {bindActionCreators, Dispatch} from "redux";
 import { connect } from "react-redux";
 
-import { ActionsType, RootStateType } from "../shared/store";
+import {actions, ActionsType, RootStateType} from "../shared/store";
 
 import Account from "./Account";
 
 interface OwnProps {
 }
 
-const mapStateToProps = (state: RootStateType) => ({
+const accountStateToProps = (state: RootStateType) => ({
 
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<ActionsType>, props: OwnProps) => ({});
+const accountDispatchToProps = (dispatch: Dispatch<ActionsType>, props: OwnProps) => bindActionCreators({
+    loggedInStatus: () => actions.logInFacebookAction(),
+}, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Account);
+export default connect(accountStateToProps, accountDispatchToProps)(Account);
