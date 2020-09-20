@@ -1,12 +1,7 @@
-import {ERROR, USER_ACCOUNT_GET, USER_ACCOUNT_REGISTER} from "../constants";
+import {ERROR, GET_ALL_BOOKS, USER_ACCOUNT_SET, USER_ACCOUNT_REGISTER} from "../constants";
 
-// export const getUserInformationAction = createAction(USER_ACCOUNT_GET, action => {
-//     console.log("Action: getUserInformationAction");
-//     return (userId: string) => action({userId});
-// });
-
-export const getUserInformationAction = (userId: string) => ({
-    type: USER_ACCOUNT_GET,
+export const setUserInformationAction = (userId: string) => ({
+    type: USER_ACCOUNT_SET,
     payload: {
         userId: userId
     }
@@ -25,5 +20,14 @@ export const errorAction = (error: Error) => ({
     type: ERROR,
     payload: {
         error: error
+    }
+});
+
+export const getALlNearybyBooksAction = (userId: string, geoX: number, geoY: number) => ({
+    type: GET_ALL_BOOKS,
+    payload: {
+        userId: userId,
+        geoX: geoX,
+        geoY: geoY
     }
 });

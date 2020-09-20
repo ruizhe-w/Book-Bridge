@@ -1,11 +1,21 @@
-const getLoggedInUserInformation = (userId: string) => {
+var ans: string;
+
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
+const getLoggedInUserInformation = (userId: string) =>{
     console.log(`trying to get logged in user information: ${userId}`);
     // FIXME: comment it back
-    // return fetch("https://ppt666.com/v1/user/getLoggedInUserInformation", {
-    //     method: "post",
-    //     body: `{"userId": "${userId}"}`
-    // })
-    //     .then(response => response.json());
+// , {
+//         // method: "post",
+//         // body: `{"userId": "${userId}"}`
+//     }
+    fetch("http://localhost:3000/v1/user/getLoggedInUserInformation").then(response => {
+        response.json().then(json => {
+            ans = `${json.UserId}+${json.UserName}+${json.UserImage}`;
+        });
+    });
 };
 
 const createNewUser = (userId: string, userNickName: string, userImage: string) => {

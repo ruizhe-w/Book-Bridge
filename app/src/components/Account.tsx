@@ -1,7 +1,6 @@
 import * as React from "react";
-import {actions} from "../shared/store";
 import {getLoggedInUserInformation} from "../shared/services/Account";
-import {getUserInformationAction} from "../shared/store/actions";
+import {setUserInformationAction} from "../shared/store/actions";
 
 export interface AccountProps {
     isLoggedIn: boolean,
@@ -22,8 +21,28 @@ export default class Account extends React.Component<AccountProps, {}> {
     componentDidMount() {
         this.checkFacebookLoginStatus = this.checkFacebookLoginStatus.bind(this);
         this.facebookCheckLoginStatusRecall = this.facebookCheckLoginStatusRecall.bind(this);
+        this.getLoggedInUserInformation = this.getLoggedInUserInformation.bind(this);
         this.render = this.render.bind(this);
         this.checkFacebookLoginStatus();
+    }
+
+    getLoggedInUserInformation(userId: string) {
+        console.log(`trying to get logged in user information: ${userId}`);
+        // FIXME: comment it back
+// , {
+//         // method: "post",
+//         // body: `{"userId": "${userId}"}`
+//     }
+        fetch("http://localhost:3000/v1/user/getLoggedInUserInformation").then(response => {
+            response.json().then(json => {
+                this.setState({
+                    userName: json.UserName,
+                    userId: json.UserId,
+                    userImage: json.UserImage
+                });
+                console.log("Update successfully");
+            });
+        });
     }
 
    facebookCheckLoginStatusRecall = (response: any) => {
@@ -32,9 +51,11 @@ export default class Account extends React.Component<AccountProps, {}> {
             console.log("Logged in");
             console.log(response.authResponse.userID);
             state = true;
-            actions.getUserInformationAction(response.authResponse.userID);
-
-            getLoggedInUserInformation(response.authResponse.userID).then(getUserInformationAction);
+            try {
+                this.getLoggedInUserInformation(response.authResponse.userID);
+            } catch (e) {
+                console.error(e);
+            }
         } else {
             console.log("Not logged in.");
             state = false;
@@ -59,7 +80,7 @@ export default class Account extends React.Component<AccountProps, {}> {
                 </div>;
         } else {
             accountDetail = <div className="user-base"><div className="fb-login-button" data-size="large" data-button-type="continue_with"
-                                 data-layout="default" data-auto-logout-link="false" data-use-continue-as="true"
+                                 data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"
                                  data-width="">
             </div></div>;
         }

@@ -1,4 +1,5 @@
-export const TEST_GET = "@@test/GET";
-export const USER_ACCOUNT_GET = "@@account/GET";
+export const USER_ACCOUNT_SET = "@@account/SET";
 export const USER_ACCOUNT_REGISTER = "@@account/REGISTER";
 export const ERROR = "@@error";
+
+export const GET_ALL_BOOKS = "@@books/GET_ALL";

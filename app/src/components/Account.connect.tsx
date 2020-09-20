@@ -4,10 +4,7 @@ import { connect } from "react-redux";
 import {RootStateType} from "../shared/store";
 
 import Account from "./Account";
-import {ERROR, USER_ACCOUNT_GET, USER_ACCOUNT_REGISTER} from "../shared/store/constants";
-
-interface OwnProps {
-}
+import {ERROR, USER_ACCOUNT_SET, USER_ACCOUNT_REGISTER} from "../shared/store/constants";
 
 const mapStateToProps = (state: RootStateType) => ({
     isLoggedIn: state.account.isLoggedIn,
@@ -15,7 +12,7 @@ const mapStateToProps = (state: RootStateType) => ({
     userImageUrl: state.account.userImage
 });
 
-const getUserInformationAction = ()=> ({type: USER_ACCOUNT_GET});
+const getUserInformationAction = ()=> ({type: USER_ACCOUNT_SET});
 const registUser = () => ({ type: USER_ACCOUNT_REGISTER });
 const errorAction = () => ({ type: ERROR });
 

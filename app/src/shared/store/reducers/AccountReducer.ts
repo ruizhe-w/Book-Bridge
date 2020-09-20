@@ -1,7 +1,7 @@
 import * as actions from "../actions";
 import {act} from "react-dom/test-utils";
 import {Action} from "redux";
-import {ERROR, USER_ACCOUNT_GET} from "../constants";
+import {ERROR, USER_ACCOUNT_SET} from "../constants";
 
 export interface AccountState {
     readonly isLoggedIn: boolean;
@@ -20,7 +20,7 @@ const initialState = {
 export const accountReducer = (state: AccountState = initialState, action: any): AccountState => {
 
     switch (action.type) {
-        case USER_ACCOUNT_GET:
+        case USER_ACCOUNT_SET:
             console.log(action);
             return Object.assign({}, state, { isLoggedIn: true, username: action.payload});
         case ERROR:
