@@ -1,10 +1,10 @@
 import * as React from "react";
 
-export interface BookProps {
-    bookName: string,
-    bookImage: string,
-    bookPrice: number,
-    bookId: string,
+export class BookProps {
+    bookName: string;
+    bookImage: string;
+    bookPrice: number;
+    bookId: string;
 }
 
 export default class Book extends React.Component<BookProps, {}> {
@@ -19,6 +19,6 @@ export default class Book extends React.Component<BookProps, {}> {
             <img className="book-abstract-image" src={this.props.bookImage} alt={this.props.bookName}/>
             <p className="book-abstract-name">{this.props.bookName}</p>
             <p className="book-abstract-price">{this.props.bookPrice}</p>
-        </div>)
+        </div>);
     }
 }

@@ -1,6 +1,4 @@
 import * as React from "react";
-import {getLoggedInUserInformation} from "../shared/services/Account";
-import {setUserInformationAction} from "../shared/store/actions";
 
 export interface AccountProps {
     isLoggedIn: boolean,
