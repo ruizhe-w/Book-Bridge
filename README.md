@@ -6,6 +6,7 @@ Purchasing books is rather expensive, even if buying used ones is still a big bu
 the bookstore usually means lost a fortune. Why not just sell books to your neighbors or your classmates? 
 
 Build with React + Typescript + Facebook + Flask + AWS
+
 ###Demo
 ![image1](./doc/1.png)
 Login with Facebook to avoid fraud. 
