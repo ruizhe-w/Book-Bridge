@@ -426,7 +426,7 @@ form {
     background: #fff;
 }
 
-.upload-input {
+.upload-input, button {
     border-color: #f1eeee;
     width: 100%;
     border: 1px solid #ccc;

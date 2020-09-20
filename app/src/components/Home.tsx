@@ -3,6 +3,7 @@ import Account from "./Account";
 import Books from "./Books";
 import Book, {BookProps} from "./Book";
 import Upload from "./Upload";
+import {Redirect} from "react-router-dom";
 
 export interface HomeProps {
     loading: boolean;
@@ -67,7 +68,7 @@ export default class Home extends React.Component<HomeProps, {}> {
         console.log("Init app");
         let booksDiv;
         if (this.state.redirectUpload) {
-            booksDiv = <Upload />;
+            booksDiv  = <Redirect to="/upload" />;
         } else if (this.state.loading) {
             booksDiv = <div className="main">
                 <img src="../../assets/loading.gif"/>

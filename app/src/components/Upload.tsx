@@ -91,7 +91,7 @@ export default class Upload extends React.Component<ChatProps, {}> {
                 </label>
                 <label className="upload-label">
                     Book Image:
-                    <input className="upload-input" type="text" name="bookImage" />
+                    <input className="upload-input" type="file" accept="image/*" multiple={false} name="bookImage" />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
@@ -99,7 +99,14 @@ export default class Upload extends React.Component<ChatProps, {}> {
         }
 
         return (
-            page
+            <div className="main">
+                <div className="header">
+                    <h1 className="header-title">Sell your books</h1>
+                    <Account isLoggedIn={false}/>
+                    <img className = "upload-icon" src="./../../assets/upload.png"/>
+                </div>
+                {page}
+            </div>
         );
     }
 }
