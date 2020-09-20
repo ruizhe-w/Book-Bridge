@@ -1,5 +1,7 @@
 import * as React from "react";
 import {actions} from "../shared/store";
+import {getLoggedInUserInformation} from "../shared/services/Account";
+import {getUserInformationAction} from "../shared/store/actions";
 
 export interface AccountProps {
     isLoggedIn: boolean,
@@ -31,6 +33,8 @@ export default class Account extends React.Component<AccountProps, {}> {
             console.log(response.authResponse.userID);
             state = true;
             actions.getUserInformationAction(response.authResponse.userID);
+
+            getLoggedInUserInformation(response.authResponse.userID).then(getUserInformationAction);
         } else {
             console.log("Not logged in.");
             state = false;

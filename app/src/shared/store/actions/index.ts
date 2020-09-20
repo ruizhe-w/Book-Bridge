@@ -1,14 +1,29 @@
-import {createAction} from "typesafe-actions";
+import {ERROR, USER_ACCOUNT_GET, USER_ACCOUNT_REGISTER} from "../constants";
 
-import {TEST_GET, USER_ACCOUNT_GET, USER_ACCOUNT_REGISTER} from "../constants";
+// export const getUserInformationAction = createAction(USER_ACCOUNT_GET, action => {
+//     console.log("Action: getUserInformationAction");
+//     return (userId: string) => action({userId});
+// });
 
-export const testAction = createAction(TEST_GET, resolve => (lat: number, lng: number) => resolve({lat, lng}));
-export const getUserInformationAction = createAction(USER_ACCOUNT_GET, action => {
-    console.log("Action: getUserInformationAction");
-    return (userId: string) => action({userId});
+export const getUserInformationAction = (userId: string) => ({
+    type: USER_ACCOUNT_GET,
+    payload: {
+        userId: userId
+    }
 });
-export const registUser = createAction(USER_ACCOUNT_REGISTER, resolve => (userId: string, userName: string, userImage: string) => resolve({
-    userId,
-    userName,
-    userImage
-}));
+
+export const registUser = (userId: string, userName: string, userImage: string) => ({
+    type: USER_ACCOUNT_REGISTER,
+    payload: {
+        userId: userId,
+        userName: userName,
+        userImage: userImage
+    }
+});
+
+export const errorAction = (error: Error) => ({
+    type: ERROR,
+    payload: {
+        error: error
+    }
+});

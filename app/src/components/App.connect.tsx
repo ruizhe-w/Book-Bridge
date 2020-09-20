@@ -1,18 +1,18 @@
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
 
-import { ActionsType, RootStateType } from "../shared/store";
+import {RootStateType } from "../shared/store";
 
 import App from "./App";
 
 interface OwnProps {}
 
 const mapStateToProps = (state: RootStateType) => ({
-    loading: !state.test.ready,
+    loading: !state.account.ready,
 });
 
 const mapDispatchToProps = (
-    dispatch: Dispatch<ActionsType>,
+    dispatch: any,
     props: OwnProps
 ) => ({});
 
