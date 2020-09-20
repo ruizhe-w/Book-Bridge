@@ -8,11 +8,17 @@ export interface AccountProps {
 }
 
 export default class Account extends React.Component<AccountProps, {}> {
-    state = {isLoggedIn: false};
+    state = {
+        isLoggedIn: false,
+        userImage: "",
+        userName: ""};
 
     constructor(props: AccountProps) {
         super(props);
-        this.state = {isLoggedIn: false};
+        this.state = {
+            isLoggedIn: false,
+            userImage: "",
+            userName: ""};
         FB.Event.subscribe("auth.statusChange", this.checkFacebookLoginStatus);
     }
 
@@ -71,10 +77,15 @@ export default class Account extends React.Component<AccountProps, {}> {
         if (this.state.isLoggedIn) {
             accountDetail =
                 <div className="user-base">
-                    <img className="user-img" src={this.props.userImageUrl} alt="Image"/>
-                    <p className="user-name"> {this.props.userName}</p>
+                    <img className="user-img" src={this.state.userImage} alt="Image"/>
+                    <p className="user-name"> Welcome, {this.state.userName}</p>
 
                     <button className="user-message">{this.props.userMessageCounter}</button>
+
+                    <div className="fb-login-button" data-size="large" data-button-type="continue_with"
+                         data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"
+                         data-width="">
+                    </div>
                 </div>;
         } else {
             accountDetail = <div className="user-base"><div className="fb-login-button" data-size="large" data-button-type="continue_with"

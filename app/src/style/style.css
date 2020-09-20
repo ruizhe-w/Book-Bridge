@@ -1,0 +1,250 @@
+body {
+    background-color: #e6eff1;
+}
+
+.book-outer {
+    width:190px;
+    margin-right:10px;
+    margin-bottom:10px;
+
+    display: inline-block;
+    vertical-align: top;
+    width: 240px;
+    font-size: 12px;
+    color: #252525;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.book-abstract {
+    background-color:#ffffff;
+    border-radius:8px;
+
+    display: inline-block;
+    vertical-align: top;
+    width: 240px;
+    font-size: 12px;
+    color: #252525;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.book-abstract-image {
+    border-radius:8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+    vertical-align: top;
+    width: 240px;
+    font-size: 12px;
+    color: #252525;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.book-abstract-price {
+
+    vertical-align: top;
+    width: 240px;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline;
+    font-size: 18px;
+    color: #f02b2b;
+}
+
+.book-abstract-name {
+    color:#2b2b2b;
+
+    display: inline-block;
+    vertical-align: top;
+    width: 240px;
+    font-size: 12px;
+    color: #252525;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+div {
+    display: block;
+}
+
+.book-price-wrapper {
+    line-height: 25px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    display: block;
+    vertical-align: top;
+    width: 240px;
+    font-size: 12px;
+    color: #252525;
+    position: relative;
+
+    padding: 12px 18px;
+}
+
+
+.book-old-price {
+    display: inline;
+    font-size: 12px;
+    height: 20px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    vertical-align: top;
+    width: 240px;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: #adadad;
+}
+
+.book-buy-now {
+    background-image: url(../../assets/buy-now.png);
+    -webkit-mask: url(../../assets/buy-now.png) no-repeat;
+    -webkit-mask-size: 100% 100%;
+
+    width: 120px;
+    height: 60px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+    background-position: 50%;
+    background-size: contain;
+
+    position: absolute;
+    bottom: 1px;
+    right: 12px;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+}
+
+.header {
+    position: relative;
+    z-index: 11;
+    height: 140px;
+    width: 990px;
+    margin: auto;
+    padding: 0;
+    display: block;
+
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+    color: #666;
+}
+
+.user-img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin-right: 20px;
+    margin-top: 20px;
+    float: right;
+    display: block;
+    border-radius:100px;
+}
+
+.user-base {
+    width: 80px;
+    height: 87px;
+    position: relative;
+    margin-left: 10px;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family: Lantinghei SC;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header-title {
+    float: left;
+    width: 400px;
+    vertical-align: middle;
+    height: 110px;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    margin-top: 30px;
+    margin-left: 30px;
+
+    font-family: Lantinghei SC;
+    color: #FFF;
+    font-size: 36px;
+    font-weight: 500;
+
+}
+
+.user-name {
+    position: absolute;
+    left: 200px;
+    font-weight: 500;
+    width: 240px;
+    height: 24px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #FFF;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.fb-login-button {
+    position: absolute;
+    left: 182px;
+    top: 50px;
+    width: 80px;
+    height: 20px;
+    color: #F40;
+    font-size: 12px;
+    padding-left: 23px;
+    font-weight: 200;
+}
+
+.header {
+    background-color: #F40;
+    width: 900px;
+}
+
+.user-message {
+    visibility: hidden;
+}
+
+.books {
+    width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    padding: 0;
+    display: block;
+    vertical-align: center;
+}

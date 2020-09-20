@@ -1,7 +1,7 @@
 import * as React from "react";
 import Account from "./Account";
 import Books from "./Books";
-import {BookProps} from "./Book";
+import Book, {BookProps} from "./Book";
 
 export interface AppProps {
     loading: boolean;
@@ -17,6 +17,8 @@ export default class App extends React.Component<AppProps, {}> {
             geoY: 0,
             userId: "0",
         };
+        this.fetchDefaultBookData = this.fetchDefaultBookData.bind(this);
+        this.fetchDefaultBookData();
     }
 
     state = {
@@ -27,12 +29,39 @@ export default class App extends React.Component<AppProps, {}> {
         userId: "0",
     };
 
+    fetchDefaultBookData() {
+        console.log("Fetching books");
+        fetch("http://localhost:3000/v1/books/getAllBooksNearby").then(response => {
+            response.json().then(json => {
+                console.log(json.a);
+                let newBooks = [];
+                for (const [index, value] of json.a.entries()) {
+                    let book: BookProps = new BookProps();
+                    book.bookName = value.bookName;
+                    book.bookImage = value.bookImage;
+                    book.bookId = value.bookId;
+                    book.bookPrice = value.bookPrice;
+                    newBooks.push(book);
+                }
+
+
+                this.setState({
+                    abstractBooks: json.a,
+                    loading: false
+                });
+                console.log("Update book data successfully");
+            });
+        });
+    }
+
 
     render() {
         console.log("Init app");
         let booksDiv;
         if (this.state.loading) {
-            booksDiv = <div className="main"></div>;
+            booksDiv = <div className="main">
+                <img src="../../assets/loading.gif"/>
+            </div>;
         } else {
             booksDiv =
                 <div className="main">
@@ -43,7 +72,7 @@ export default class App extends React.Component<AppProps, {}> {
             <div className="app">
                 {/*{this.props.loading && <div className="loading" />}*/}
                 <div className="header">
-                    <h1>Sale your books</h1>
+                    <h1 className="header-title">Sale your books</h1>
                     <Account isLoggedIn={false}/>
                 </div>
                 {booksDiv}

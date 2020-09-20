@@ -26,7 +26,7 @@ export default class Books extends React.Component<BooksProps, {}> {
 
     render() {
         return (
-            <div>
+            <div className="books">
                 {this.items}
             </div>
         );
