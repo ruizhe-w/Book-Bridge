@@ -199,7 +199,7 @@ div {
 
 .user-name {
     position: absolute;
-    left: 200px;
+    left: 130px;
     font-weight: 500;
     width: 240px;
     height: 24px;
@@ -220,7 +220,7 @@ div {
 
 .fb-login-button {
     position: absolute;
-    left: 182px;
+    left: 112px;
     top: 50px;
     width: 80px;
     height: 20px;
@@ -247,4 +247,138 @@ div {
     padding: 0;
     display: block;
     vertical-align: center;
+}
+
+.detail-base {
+    width: 800px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    padding: 0;
+    display: block;
+    vertical-align: center;
+}
+
+.detail-book-image {
+    float: left;
+    border: 0;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    height: 350px;
+    width: 350px;
+    position: relative;
+    display: block;
+    padding-right: 60px;
+    padding-top: 60px;
+    padding-left: 60px;
+    box-sizing: border-box;
+}
+
+.detail-book-name {
+    font: 700 16px Arial,"microsoft yahei";
+    color: #666;
+    padding-top: 10px;
+    line-height: 28px;
+    margin-bottom: 5px;
+    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    box-sizing: border-box;
+}
+
+.detail-book-content {
+    padding: 10px 0 0;
+    background: #f3f3f3;
+    margin: 0;
+    padding: 0;
+    display: block;
+    font: 12px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin-bottom: 30px;
+
+    box-sizing: border-box;
+}
+
+.detail-book-price {
+    margin-left: 70px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    font: 12px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #666;
+    box-sizing: border-box;
+}
+
+.detail-book-description {
+    margin-left: 70px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    font: 12px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #666;
+    box-sizing: border-box;
+}
+
+.detail-contact-button {
+    margin-right: 10px;
+    float: left;
+    border: 1px solid #ebebeb;
+    color: #ccc;
+    background-color: #f7f7f7;
+    cursor: not-allowed;
+    height: 200px;
+    line-height: 46px;
+    padding: 0 26px;
+    font-size: 18px;
+    font-family: "microsoft yahei";
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.detail-seller-image {
+
+    width: 200px;
+    height: 120px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+    background-position: 50%;
+    background-size: contain;
+
+    bottom: 1px;
+    right: 12px;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+}
+
+.detail-seller-text {
+    color: #000;
+}
+
+.detail-wrap {
+    float: left;
+    margin-left: 30px;
+    min-height: 590px;
+    padding-top: 60px;
+
+    margin-right: 24px;
+    margin: 0;
+    display: block;
+    font: 12px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #000;
 }

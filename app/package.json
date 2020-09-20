@@ -18,11 +18,13 @@
     "@types/react": "16.9.49",
     "@types/react-dom": "16.9.8",
     "@types/react-redux": "7.1.9",
+    "@types/react-router-dom": "^5.1.5",
     "body-parser": "^1.19.0",
     "build": "^0.1.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-redux": "7.2.1",
+    "react-router-dom": "^5.2.0",
     "redux": "4.0.5",
     "start": "^5.1.0"
   },

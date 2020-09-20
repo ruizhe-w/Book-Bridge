@@ -88,10 +88,18 @@ export default class Account extends React.Component<AccountProps, {}> {
                     </div>
                 </div>;
         } else {
-            accountDetail = <div className="user-base"><div className="fb-login-button" data-size="large" data-button-type="continue_with"
-                                 data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"
-                                 data-width="">
-            </div></div>;
+            accountDetail =
+                <div className="user-base">
+                    <img className="user-img" src="../../assets/anonymous-user.png" alt="Image"/>
+                    <p className="user-name"> Welcome, Please login.</p>
+
+                    <button className="user-message">{this.props.userMessageCounter}</button>
+
+                    <div className="fb-login-button" data-size="large" data-button-type="continue_with"
+                         data-layout="default" data-auto-logout-link="true" data-use-continue-as="true"
+                         data-width="">
+                    </div>
+                </div>;
         }
         return (
             accountDetail
