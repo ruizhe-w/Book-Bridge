@@ -7,7 +7,8 @@ the bookstore usually means lost a fortune. Why not just sell books to your neig
 
 Build with React + Typescript + Facebook + Flask + AWS
 
-###Demo
+### Demo
+
 ![image1](./doc/1.png)
 Login with Facebook to avoid fraud. 
 Get customized book recommendation with AWS Personalize.
