@@ -2,6 +2,7 @@ import * as React from "react";
 import Account from "./Account";
 import Books from "./Books";
 import Book, {BookProps} from "./Book";
+import Upload from "./Upload";
 
 export interface HomeProps {
     loading: boolean;
@@ -16,9 +17,15 @@ export default class Home extends React.Component<HomeProps, {}> {
             geoX: 0,
             geoY: 0,
             userId: "0",
+            redirectUpload: false,
         };
         this.fetchDefaultBookData = this.fetchDefaultBookData.bind(this);
+        this.redirectUploadFunc = this.redirectUploadFunc.bind(this);
         this.fetchDefaultBookData();
+    }
+
+    redirectUploadFunc() {
+        this.setState({redirectUpload: true});
     }
 
     state = {
@@ -27,6 +34,7 @@ export default class Home extends React.Component<HomeProps, {}> {
         geoX: 0,
         geoY: 0,
         userId: "0",
+        redirectUpload: false,
     };
 
     fetchDefaultBookData() {
@@ -58,7 +66,9 @@ export default class Home extends React.Component<HomeProps, {}> {
     render() {
         console.log("Init app");
         let booksDiv;
-        if (this.state.loading) {
+        if (this.state.redirectUpload) {
+            booksDiv = <Upload />;
+        } else if (this.state.loading) {
             booksDiv = <div className="main">
                 <img src="../../assets/loading.gif"/>
             </div>;
@@ -70,10 +80,10 @@ export default class Home extends React.Component<HomeProps, {}> {
         }
         return (
             <div className="app">
-                {/*{this.props.loading && <div className="loading" />}*/}
                 <div className="header">
                     <h1 className="header-title">Sell your books</h1>
                     <Account isLoggedIn={false}/>
+                    <img className = "upload-icon" src="./../../assets/upload.png" onClick={this.redirectUploadFunc}/>
                 </div>
                 {booksDiv}
                 <div className="footer">this is just a footer</div>
